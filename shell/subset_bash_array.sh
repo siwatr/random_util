@@ -9,7 +9,7 @@ subset_bash_array(){
     # Use nameref to refer to the global associative array, allowing us to access the element of ref_array
     #     shift: Remove the first argument of this function, so that the rest are the keys
     declare -n ref_array=$1; shift  
-    selected_keys=("$@")
+    local selected_keys=("$@")
     
     local val=""
     for key in "${selected_keys[@]}"; do
@@ -17,15 +17,15 @@ subset_bash_array(){
         # echo "${ref_array[$key]} "
     done
     
-  echo ${val[@]}
+  echo $val
 }
 
 # Simialar to the previous one, but return the script to generate a new array instead of printing the values
 subset_bash_array_2(){
     # ref_array=$1
     declare -n ref_array=$1; shift  
-    new_array=$1; shift
-    selected_keys=("$@")
+    local new_array=$1; shift
+    local selected_keys=("$@")
     
     local array_body=""
     for key in "${selected_keys[@]}"; do
@@ -34,7 +34,7 @@ subset_bash_array_2(){
     done
     
     # Making an associative array as a default behavior (at least for now)
-    array_cmd="declare -A $new_array=( $array_body )"
+    local array_cmd="declare -A $new_array=( $array_body )"
     echo $array_cmd
 }
 

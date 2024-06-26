@@ -70,23 +70,25 @@ load_flag_args(){
 
 # Example code:
 if [ false == true ]; then
-    # Boolean parameter test
-    arg_val="A B C"
-    load_flag_args_boolean "-v" "--verbose" -a 1 -b -c x y z -d $arg_val # no -v flag
-    load_flag_args_boolean "-v" "--verbose" -a 1 -b -c x y z -d $arg_val # -v in the comment shouldn't be counted
-    load_flag_args_boolean "-v" "--verbose" -v -a 1 -b -c x y z -d $arg_val # -v at the beginning
-    load_flag_args_boolean "-v" "--verbose" -a 1 -v -b -c x y z -d $arg_val # -v in the middle
-    load_flag_args_boolean "-v" "--verbose" -a 1 -b -c x y z -d $arg_val -v # -v at the end
-    load_flag_args_boolean "-v" "--verbose" -a 1 -b -c v x y z -d $arg_val # v appear in other parameter
-    load_flag_args_boolean "-v" "--verbose" --verbose -a 1 -b -c x y z -d $arg_val # Full flag
-    load_flag_args_boolean "-v" "--verbose" -verbose -a 1 -b -c x y z -d $arg_val  # Full flag with only one hyphen
-    load_flag_args_boolean "-v" "--verbose" --verbose1 -a 1 -b -c x y z -d $arg_val # Mismatched flag
-    # NB: it cannot distinguish a collection of short flags like a typical bash command.
-    load_flag_args_boolean "-v" "--verbose" -va -a 1 -b -c x y z -d $arg_val # Mismatched flag
+  # Boolean parameter test
+  arg_val="A B C"
+  load_flag_args_boolean "-v" "--verbose" -a 1 -b -c x y z -d $arg_val # no -v flag
+  load_flag_args_boolean "-v" "--verbose" -a 1 -b -c x y z -d $arg_val # -v in the comment shouldn't be counted
+  load_flag_args_boolean "-v" "--verbose" -v -a 1 -b -c x y z -d $arg_val # -v at the beginning
+  load_flag_args_boolean "-v" "--verbose" -a 1 -v -b -c x y z -d $arg_val # -v in the middle
+  load_flag_args_boolean "-v" "--verbose" -a 1 -b -c x y z -d $arg_val -v # -v at the end
+  load_flag_args_boolean "-v" "--verbose" -a 1 -b -c v x y z -d $arg_val # v appear in other parameter
+  load_flag_args_boolean "-v" "--verbose" --verbose -a 1 -b -c x y z -d $arg_val # Full flag
+  load_flag_args_boolean "-v" "--verbose" -verbose -a 1 -b -c x y z -d $arg_val  # Full flag with only one hyphen
+  load_flag_args_boolean "-v" "--verbose" --verbose1 -a 1 -b -c x y z -d $arg_val # Mismatched flag
+  # NB: it cannot distinguish a collection of short flags like a typical bash command.
+  load_flag_args_boolean "-v" "--verbose" -va -a 1 -b -c x y z -d $arg_val # Mismatched flag
+  load_flag_args_boolean "" "--verbose" -v -a 1 -b -c x y z -d $arg_val # only long flag is allowed
+  load_flag_args_boolean "-v" "" -verbose -a 1 -b -c x y z -d $arg_val # only short flag is allowed
 
-    # Regular parameter test
-    load_flag_args "-c" "default" -a 1 -b -d $arg_val            # no -c flag
-    load_flag_args "-c" "default" -a 1 -b -c x -d $arg_val       # -c flag with a single values
-    load_flag_args "-c" "default" -a 1 -b -c x y z -d $arg_val   # -c flag with multiple values
-    load_flag_args "-c" "default" -a 1 -b -c -d $arg_val         # -c flag without value
+  # Regular parameter test
+  load_flag_args "-c" "default" -a 1 -b -d $arg_val            # no -c flag
+  load_flag_args "-c" "default" -a 1 -b -c x -d $arg_val       # -c flag with a single values
+  load_flag_args "-c" "default" -a 1 -b -c x y z -d $arg_val   # -c flag with multiple values
+  load_flag_args "-c" "default" -a 1 -b -c -d $arg_val         # -c flag without value
 fi
