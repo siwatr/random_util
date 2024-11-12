@@ -1,0 +1,35 @@
+args_name	flag_name	n_args	is_flag	mode	restrict_choice
+regionsFileName	--regionsFileName; -R	Inf	FALSE	common	
+scoreFileName	--scoreFileName; -S	Inf	FALSE	common	
+outFileName	--outFileName; -o; -out	1	FALSE	common	
+outFileNameMatrix	--outFileNameMatrix	1	FALSE	common	
+outFileSortedRegions	--outFileSortedRegions	1	FALSE	common	
+referencePoint	--referencePoint	1	FALSE	reference-point	TSS; TES; center
+nanAfterEnd	--nanAfterEnd	0	TRUE	reference-point	
+regionBodyLength	--regionBodyLength; -m	1	FALSE	scale-regions	
+startLabel	--startLabel	1	FALSE	scale-regions	
+endLabel	--endLabel	1	FALSE	scale-regions	
+unscaled5prime	--unscaled5prime	0	TRUE	scale-regions	
+unscaled3prime	--unscaled3prime	0	TRUE	scale-regions	
+beforeRegionStartLength	--beforeRegionStartLength; -b; --upstream	1	FALSE	common	
+afterRegionStartLength	--afterRegionStartLength; -a; --downstream	1	FALSE	common	
+binSize	--binSize; -bs	1	FALSE	common	
+sortRegions	--sortRegions	1	FALSE	common	descend; ascend; no; keep
+sortUsing	--sortUsing	1	FALSE	common	mean; median; max; min; sum; region_length
+sortUsingSamples	--sortUsingSamples	Inf	FALSE	common	
+averageTypeBins	--averageTypeBins	1	FALSE	common	mean; median; min; max; std; sum
+missingDataAsZero	--missingDataAsZero	0	TRUE	common	
+skipZeros	--skipZeros	0	TRUE	common	
+minThreshold	--minThreshold	1	FALSE	common	
+maxThreshold	--maxThreshold	1	FALSE	common	
+blackListFileName	--blackListFileName; -bl	1	FALSE	common	
+samplesLabel	--samplesLabel	Inf	FALSE	common	
+smartLabels	--smartLabels	0	TRUE	common	
+quiet	--quiet	0	TRUE	common	
+scale	--scale	1	FALSE	common	
+verbose	--verbose	0	TRUE	common	
+numberOfProcessors	--numberOfProcessors; -p	1	FALSE	common	
+metageneCenter	--metagene	0	TRUE	common	
+transcriptID	--transcriptID	1	FALSE	common	
+exonID	--exonID	1	FALSE	common	
+transcript_id_designator	--transcript_id_designator	1	FALSE	common	
